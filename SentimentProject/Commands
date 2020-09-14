@@ -1,0 +1,17 @@
+jps
+start-all.sh
+jps
+hadoop fs -mkdir /senti
+hadoop fs -put /home/user/Desktop/SentimentProject/dataset.csv /senti
+hadoop fs -ls /senti
+cd /home/user/Desktop/SentimentProject/Emotions
+hadoop jar mood.jar Moodfinder /senti/dataset.csv /senti/output
+
+<--graph-->
+
+cd /var/www/html
+chmod -R 775 Moodplot-graph
+
+<--remove command-->
+hadoop fs -rm -r /senti
+
